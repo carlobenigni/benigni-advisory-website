@@ -1,9 +1,1330 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Benigni Advisory</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benigni | Intelligent Development</title>
+  <meta name="description" content="Purpose-driven real estate development advisory. Institutional expertise across Italy and the UK." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #00283B;
+      --blue: #0081BC;
+      --white: #ffffff;
+      --off-white: #f5f6f7;
+      --light-border: #dde1e4;
+      --text-muted: #6b7a85;
+      --max-width: 1100px;
+      --nav-height: 72px;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: var(--navy);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blue);
+      padding: 0.625rem 1.375rem;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta:hover { background: #006fa3; }
+
+    /* ── HERO ── */
+
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--nav-height);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.875rem);
+      font-weight: 300;
+      line-height: 1.13;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 strong { font-weight: 500; }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover { background: #006fa3; }
+
+    .btn-ghost {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 0.125rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+
+    .stat-value {
+      font-size: 1.875rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .stat-label {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-top: 0.3rem;
+    }
+
+    /* ── TRUSTED BY ── */
+
+    .trusted {
+      background: var(--off-white);
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--light-border);
+    }
+
+    .trusted-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trusted-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .trusted-logos {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trusted-logo {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #bbc4cb;
+      text-transform: uppercase;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.625rem, 3vw, 2.375rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--navy);
+      max-width: 640px;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 4rem;
+    }
+
+    /* ── OVERVIEW ── */
+
+    .overview {
+      background: var(--white);
+      padding: 7rem 2rem;
+    }
+
+    .overview-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .overview-left .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .overview-body {
+      padding-top: 0.25rem;
+    }
+
+    .overview-body p {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #2a3f4d;
+      margin-bottom: 1.5rem;
+    }
+
+    .overview-body p:last-child { margin-bottom: 0; }
+
+    /* ── SERVICES ── */
+
+    .services {
+      background: var(--off-white);
+      padding: 7rem 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--light-border);
+    }
+
+    .service-item {
+      padding: 2.5rem 2.5rem 2.5rem 0;
+      border-bottom: 1px solid var(--light-border);
+    }
+
+    .service-item:not(:last-child) {
+      border-right: 1px solid var(--light-border);
+      padding-right: 2.5rem;
+      margin-right: 0;
+    }
+
+    .service-item + .service-item {
+      padding-left: 2.5rem;
+    }
+
+    .service-number {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .service-title {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.875rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── SERVICE TOOLKIT ── */
+
+    .toolkit {
+      background: var(--white);
+      padding: 7rem 2rem;
+    }
+
+    .toolkit-intro-wrapper { margin-top: 1rem; }
+
+    .toolkit-phases-wrapper { margin-top: 3rem; }
+
+    .toolkit-intro {
+      max-width: var(--max-width);
+      margin: 0 auto 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .toolkit-intro-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #2a3f4d;
+      margin-bottom: 1rem;
+    }
+
+    .toolkit-intro-text p:last-child { margin-bottom: 0; }
+
+    .toolkit-phases {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--light-border);
+    }
+
+    .toolkit-phase {
+      padding: 2.5rem;
+      border-right: 1px solid var(--light-border);
+    }
+
+    .toolkit-phase:last-child { border-right: none; }
+
+    .phase-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .phase-title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 0.625rem;
+    }
+
+    .phase-sub {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .phase-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .phase-item-group dt {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .phase-item-group dd {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* ── ABOUT ── */
+
+    .about {
+      background: var(--off-white);
+      padding: 7rem 2rem;
+    }
+
+    .about-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-text .section-heading { margin-bottom: 2rem; }
+
+    .about-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #2a3f4d;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .carlo-portrait {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      margin-bottom: 2rem;
+      filter: grayscale(20%);
+    }
+
+    .about-aside { padding-top: 3.25rem; }
+
+    .aside-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .credentials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .credential-item {
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border-left: 2px solid var(--blue);
+    }
+
+    .credential-name {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .credential-role {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .qualifications {
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--light-border);
+    }
+
+    .qualifications-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .qualifications p {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── TRACK RECORD ── */
+
+    .track-record {
+      background: var(--navy);
+      padding: 7rem 2rem;
+    }
+
+    .track-record .section-label { color: var(--blue); }
+
+    .track-record .section-heading { color: var(--white); max-width: 480px; }
+
+    .track-record .section-intro { color: rgba(255,255,255,0.5); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.5rem;
+      filter: brightness(0.85) grayscale(15%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item {
+      padding: 2rem 2rem 2.25rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s ease;
+    }
+
+    .project-item:hover { background: rgba(255,255,255,0.04); }
+
+    .project-item:hover .project-thumb { filter: brightness(0.95) grayscale(0%); }
+
+    .project-item:nth-child(3n) { border-right: none; }
+    .project-item:nth-child(4),
+    .project-item:nth-child(5),
+    .project-item:nth-child(6) { border-bottom: none; }
+
+    .project-location {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-name {
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    .meta-key {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      min-width: 4.5rem;
+    }
+
+    .meta-val {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ── CONTACT ── */
+
+    .contact {
+      background: var(--white);
+      padding: 7rem 2rem;
+    }
+
+    .contact-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-text .section-heading { margin-bottom: 1.5rem; }
+
+    .contact-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--blue);
+      border-bottom: 1px solid rgba(0,129,188,0.3);
+      padding-bottom: 0.125rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-email:hover { border-color: var(--blue); }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--navy);
+      background: var(--off-white);
+      border: 1px solid var(--light-border);
+      padding: 0.75rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a85' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit button {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: none;
+      padding: 0.9375rem 2.25rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .form-submit button:hover { background: var(--blue); }
+
+    .form-note {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      grid-column: 1 / -1;
+    }
+
+    /* ── FOOTER ── */
+
+    footer {
+      background: #001c2b;
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+      width: 100%;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-social a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── MOBILE ── */
+
+    @media (max-width: 960px) {
+      .overview-inner,
+      .about-inner,
+      .contact-inner,
+      .toolkit-intro {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-item:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .service-item + .service-item {
+        padding-left: 0;
+      }
+
+      .toolkit-phases {
+        grid-template-columns: 1fr;
+      }
+
+      .toolkit-phase {
+        border-right: none;
+        border-bottom: 1px solid var(--light-border);
+      }
+
+      .toolkit-phase:last-child { border-bottom: none; }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .project-item:nth-child(2n) { border-right: none; }
+      .project-item:nth-child(4),
+      .project-item:nth-child(5),
+      .project-item:nth-child(6) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .project-item:nth-child(5),
+      .project-item:nth-child(6) { border-bottom: none; }
+
+      .about-aside { padding-top: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+
+      .hero h1 { font-size: 2.25rem; }
+
+      .hero-stats { gap: 2rem; }
+
+      .trusted-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-item { border-right: none !important; }
+      .project-item:nth-child(n) { border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+      .project-item:last-child { border-bottom: none !important; }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Pipeline test — it works!</h1>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Benigni</span>
+      <ul class="nav-links">
+        <li><a href="#overview">About</a></li>
+        <li><a href="#services">What We Do</a></li>
+        <li><a href="#about">People</a></li>
+        <li><a href="#track-record">Track Record</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Start Here</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" role="presentation"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Real Estate Development Advisory</p>
+      <h1>
+        Creating extraordinary places<br>
+        <strong>where people thrive everyday.</strong>
+      </h1>
+      <p class="hero-sub">
+        We are a purpose-driven company that seamlessly integrates design and development expertise to create extraordinary places. With over 20 years of experience, we lead with an unwavering focus on innovation, sustainability, and community engagement.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a discovery call</a>
+        <a href="#overview" class="btn-ghost">Learn more</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-value">10M sq.ft.</div>
+          <div class="stat-label">Development projects</div>
+        </div>
+        <div>
+          <div class="stat-value">€600M</div>
+          <div class="stat-label">GDV unlocked</div>
+        </div>
+        <div>
+          <div class="stat-value">€10B</div>
+          <div class="stat-label">Total development GDV</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <div class="trusted">
+    <div class="trusted-inner">
+      <span class="trusted-label">Institutional background</span>
+      <div class="trusted-logos">
+        <span class="trusted-logo">Lendlease</span>
+        <span class="trusted-logo">Brookfield</span>
+        <span class="trusted-logo">Yoo Capital</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="overview" id="overview">
+    <div class="overview-inner">
+      <div class="overview-left">
+        <p class="section-label">Overview</p>
+        <h2 class="section-heading">Unlocking hidden value</h2>
+      </div>
+      <div class="overview-body">
+        <p>We are a purpose-driven company that seamlessly integrates design and development expertise to create extraordinary places where people can thrive.</p>
+        <p>With over 20 years of experience, we lead with an unwavering focus on innovation, sustainability, and community engagement. Our comprehensive development solutions maximise stakeholder value, delivering unique places that offer real, lasting worth for all.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-heading">We help investors optimise the development process to unlock real estate value</h2>
+      <p class="section-intro">We have extensive experience managing the design and development process at all stages of the development cycle. We love getting involved from the outset of a project and are comfortable getting parachuted in at any stage.</p>
+      <div class="services-grid">
+        <div class="service-item">
+          <p class="service-number">01</p>
+          <h3 class="service-title">Design &amp; Development Manager</h3>
+          <p class="service-desc">We specialise in delivering exceptional real estate projects for landowners and third-party investors. Our comprehensive approach is designed to maximise value and financial returns while ensuring the successful realisation of major development projects — from establishing a visionary development brief through to completion.</p>
+        </div>
+        <div class="service-item">
+          <p class="service-number">02</p>
+          <h3 class="service-title">Strategic Advisor</h3>
+          <p class="service-desc">We offer strategic advice to major landowners, both public and private, on developing strategic visions and optimal delivery models. Our process typically involves a thorough, in-depth review of existing proposals to ensure the best possible outcomes for all stakeholders.</p>
+        </div>
+        <div class="service-item">
+          <p class="service-number">03</p>
+          <h3 class="service-title">Fractional Development Director</h3>
+          <p class="service-desc">We serve as Development Director for businesses that prefer flexible, on-demand expertise over hiring a full-time resource. We provide tailored development management precisely when you need it, ensuring your projects receive expert guidance without the commitment of permanent staff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE TOOLKIT -->
+  <section class="toolkit" id="toolkit">
+    <div class="section-inner">
+      <p class="section-label">Service Toolkit</p>
+      <h2 class="section-heading">A service offer to help at any stage of the development cycle</h2>
+    </div>
+    <div class="toolkit-intro section-inner toolkit-intro-wrapper">
+      <div class="toolkit-intro-text">
+        <p>We provide strategic integrated design and development advice to investors and asset owners during the origination, planning, design, and development delivery of projects.</p>
+        <p>We are specialists in establishing value enhancement and design optimisation to maximise project value in collaboration with our partners, the local community, high-profile architects, and leading professional advisors.</p>
+      </div>
+      <div class="toolkit-intro-text">
+        <p>We work on complex commercial and mixed-use schemes, ranging from ground-up redevelopments to the repurposing and refurbishment of real estate assets.</p>
+        <p>We service the full development cycle as well as providing targeted advice on specific project phases.</p>
+      </div>
+    </div>
+    <div class="toolkit-phases section-inner toolkit-phases-wrapper">
+      <div class="toolkit-phase">
+        <p class="phase-label">Phase 01</p>
+        <h3 class="phase-title">Genesis</h3>
+        <p class="phase-sub">Defining the product vision and establishing the brief for the project.</p>
+        <dl class="phase-items">
+          <div class="phase-item-group">
+            <dt>Research</dt>
+            <dd>Site analysis · Benchmarking · Uses &amp; trends</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Vision</dt>
+            <dd>Product feasibility · Brief · Appraisal</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Building Teams</dt>
+            <dd>Selection · Appointments · Leadership</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="toolkit-phase">
+        <p class="phase-label">Phase 02</p>
+        <h3 class="phase-title">Design</h3>
+        <p class="phase-sub">Establishing the design fundamentals and testing the viability of the product.</p>
+        <dl class="phase-items">
+          <div class="phase-item-group">
+            <dt>Concept &amp; Scheme Design</dt>
+            <dd>Product definition · Massing · Uses</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Planning</dt>
+            <dd>Strategy · Consent · Conditions</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Sales &amp; Marketing</dt>
+            <dd>Tenant engagement · Brand · Occupier market</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="toolkit-phase">
+        <p class="phase-label">Phase 03</p>
+        <h3 class="phase-title">Build</h3>
+        <p class="phase-sub">Managing the processes to make the project a reality.</p>
+        <dl class="phase-items">
+          <div class="phase-item-group">
+            <dt>Technical Design</dt>
+            <dd>Buildability · Efficiency · Supply chain</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Construction</dt>
+            <dd>Cost control · Quality · Risk</dd>
+          </div>
+          <div class="phase-item-group">
+            <dt>Leasing</dt>
+            <dd>Pre-lettings · Agreements · Tenant</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label">People</p>
+        <h2 class="section-heading">Carlo Benigni<br>Director &amp; Founder</h2>
+        <p>Carlo has extensive experience and a proven track record in the planning, design, and development delivery of iconic, large-scale commercial and mixed-use projects in Central London. He is a proven specialist in establishing value enhancement and design optimisation to maximise project value collaboratively with globally recognised consultant teams.</p>
+        <p>Prior to establishing Benigni, Carlo served as Deputy Design Director at Brookfield Properties UK, where he led the design and development process — resulting in the establishment of a £2.5 billion, 2.5 million sq.ft. portfolio of commercial and mixed-use assets in the City of London. Before that, he worked at SOM London, a leading international architecture firm.</p>
+        <p>We believe in open and collaborative relationships. We are able to set up quickly and work with a selected network of like-minded independent professional partners to deliver an exceptional service.</p>
+      </div>
+      <div class="about-aside">
+        <img src="assets/images/carlo-benigni.png" alt="Carlo Benigni, Director &amp; Founder" class="carlo-portrait" />
+        <p class="aside-label">Institutional background</p>
+        <div class="credentials-list">
+          <div class="credential-item">
+            <div class="credential-name">Lendlease</div>
+            <div class="credential-role">Senior development roles</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-name">Brookfield Properties UK</div>
+            <div class="credential-role">Deputy Design Director</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-name">Yoo Capital</div>
+            <div class="credential-role">Senior development roles</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-name">SOM London</div>
+            <div class="credential-role">Architecture &amp; design</div>
+          </div>
+        </div>
+        <div class="qualifications">
+          <p class="qualifications-label">Qualifications &amp; accreditations</p>
+          <p>BSc Architecture &amp; Engineering, University of Westminster. PG Diploma Architecture, The Bartlett School of Architecture, UCL. RIBA Chartered Architect (ARB / SAR/MSA). LEED Accredited Professional®. Liveryman, Worshipful Company of Chartered Architects in the City of London.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section class="track-record" id="track-record">
+    <div class="section-inner">
+      <p class="section-label">Track Record</p>
+      <h2 class="section-heading">Delivering extraordinary places</h2>
+      <p class="section-intro">Our project experience ranges from exemplary new-build offices in challenging urban settings and large-scale mixed-use masterplanned communities, through to carefully crafted refurbishments of renowned heritage buildings.</p>
+      <div class="projects-grid">
+
+        <div class="project-item">
+          <img src="assets/images/project-mind.jpg" alt="MIND Milano Innovation District" class="project-thumb" />
+          <p class="project-location">Milan, Italy</p>
+          <p class="project-name">MIND — Milano Innovation District</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Lendlease</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">€2.6B</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">5,000,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completion 2032</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">Mario Cucinella Architects</span></div>
+          </div>
+          <p class="project-desc">Led the development delivery of West Gate: 145,000 sq.m. of mixed-use new urban district — an innovation hub and new neighbourhood of Milan designed for 60,000 daily visitors.</p>
+        </div>
+
+        <div class="project-item">
+          <img src="assets/images/project-olympia.jpg" alt="Future Olympia, London W14" class="project-thumb" />
+          <p class="project-location">London W14</p>
+          <p class="project-name">Future Olympia</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Yoo Capital / DFI</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">£2B</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">2,000,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completion 2025</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">SPPARC / Heatherwick Studio</span></div>
+          </div>
+          <p class="project-desc">14-acre mixed-use masterplan preserving the 135-year-old Olympia Exhibition halls. Includes theatre, music venue, hotels, offices, and creative studios. Pre-lettings with AEG, Hyatt, and CitizenM.</p>
+        </div>
+
+        <div class="project-item">
+          <img src="assets/images/project-leadenhall.jpg" alt="1 Leadenhall, London EC3" class="project-thumb" />
+          <p class="project-location">London EC3</p>
+          <p class="project-name">1 Leadenhall</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Brookfield Properties</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">£600M</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">400,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completion 2026</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">Make Architects</span></div>
+          </div>
+          <p class="project-desc">36-storey office tower in the City of London insurance district with 28,000 sq.ft. retail and a free public terrace. 200,000 sq.ft. pre-let to Latham &amp; Watkins.</p>
+        </div>
+
+        <div class="project-item">
+          <img src="assets/images/project-london-wall.jpg" alt="London Wall Place, London EC3" class="project-thumb" />
+          <p class="project-location">London EC3</p>
+          <p class="project-name">London Wall Place</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Brookfield Properties</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">£750M</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">500,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completed</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">Make Architects</span></div>
+          </div>
+          <p class="project-desc">Two award-winning office buildings with an acre of landscaped public realm. Pre-leased entirely to Schroders (300,000 sq.ft.) and Cleary Gottlieb (50,000 sq.ft.).</p>
+        </div>
+
+        <div class="project-item">
+          <img src="assets/images/project-principal-place.jpg" alt="Principal Place, London EC3" class="project-thumb" />
+          <p class="project-location">London EC3</p>
+          <p class="project-name">Principal Place</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Brookfield Properties</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">£750M</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">600,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completed 2018</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">Foster + Partners</span></div>
+          </div>
+          <p class="project-desc">15-storey Grade-A office building pre-leased in its entirety to Amazon, with 20,000 sq.ft. retail and a half-acre public piazza. Repositioned to target the TMT occupier market.</p>
+        </div>
+
+        <div class="project-item">
+          <img src="assets/images/project-bishopsgate.jpg" alt="100 Bishopsgate, London EC3" class="project-thumb" />
+          <p class="project-location">London EC3</p>
+          <p class="project-name">100 Bishopsgate</p>
+          <div class="project-meta">
+            <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Brookfield Properties</span></div>
+            <div class="meta-row"><span class="meta-key">Value</span><span class="meta-val">£1.3B</span></div>
+            <div class="meta-row"><span class="meta-key">Size</span><span class="meta-val">900,000 sq.ft.</span></div>
+            <div class="meta-row"><span class="meta-key">Status</span><span class="meta-val">Completed</span></div>
+            <div class="meta-row"><span class="meta-key">Architect</span><span class="meta-val">Allies &amp; Morrison / AFK</span></div>
+          </div>
+          <p class="project-desc">37-storey best-in-class office tower with highly efficient floorplates. Leased to Royal Bank of Canada, Freshfields, Jefferies, Paul Hastings, and Equinox.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <p class="section-label">Contact</p>
+        <h2 class="section-heading">Book a discovery call</h2>
+        <p>Please fill out this form and I will review and respond within 48 hours.</p>
+        <a href="mailto:carlo@benigni.co" class="contact-email">carlo@benigni.co</a>
+      </div>
+      <form class="contact-form" action="mailto:carlo@benigni.co" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first_name" required />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last_name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" />
+        </div>
+        <div class="form-group full">
+          <label for="referral">How did you hear about me?</label>
+          <select id="referral" name="referral">
+            <option value="" disabled selected>Please select…</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="newsletter">Unlocking Real Estate Value Newsletter</option>
+            <option value="referral">Referral</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="message">What is the main problem you are trying to solve right now?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Submit</button>
+        </div>
+        <p class="form-note">I respond personally to all enquiries within 48 hours.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Benigni</span>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/benignico" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.unlockingrealestatevalue.com/" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="https://twitter.com/carlobenigni" target="_blank" rel="noopener">X</a></li>
+      </ul>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        <span>&copy; 2026 Benigni. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>
